@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faUserFriends } from '@fortawesome/free-solid-svg-icons';
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
-import { List } from './index';
+import { MenuList } from './index';
 import {AppState} from "../../App";
 import { Profile, Login } from "./index";
 
@@ -20,13 +20,13 @@ const Header = ({mainMenu, profileMenu, showMenu, user, loginMenu, loginUser, lo
     return (
         <header>
             <FontAwesomeIcon icon={faBars} onClick={() => showMenu('mainMenu')} className="pointer"/>
-            <List
+            <MenuList
                 items={[{icon: faUserFriends, name: 'Peers', link: '/'}]}
                 className="mainMenu"
                 show={mainMenu}
             >
                 <FontAwesomeIcon icon={faTimesCircle} className="menuIcon pointer" onClick={() => showMenu('mainMenu')}/>
-            </List>
+            </MenuList>
             {
                 user
                 ? <Profile profileMenu={profileMenu} showMenu={showMenu} logoutUser={logoutUser} {...user} />

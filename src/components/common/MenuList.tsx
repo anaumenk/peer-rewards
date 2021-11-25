@@ -18,7 +18,7 @@ interface Props {
     children?: React.ReactNode;
 }
 
-const List = ({items, className = "", show, children = null }: Props) => (
+const MenuList = ({items, className = "", show, children = null }: Props) => (
     <div className={`menu ${className} ${show ? 'show' : 'hide'}`}>
         <ul className="menuList">
             {items.map((item, index) => {
@@ -39,4 +39,4 @@ const List = ({items, className = "", show, children = null }: Props) => (
     </div>
 );
 
-export default List;
+export default MenuList;

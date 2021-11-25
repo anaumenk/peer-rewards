@@ -38,6 +38,17 @@ a {
   color: #ff6271;
 }
 
+.padding {
+  padding-left: 22vw;
+}
+
+input {
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
 /* Header */
 header {
   height: 70px;
@@ -94,10 +105,7 @@ header {
 
 .login input {
   margin: 5px 0 10px 0;
-  padding: 6px;
-  border-radius: 6px;
-  border: none;
-  outline: none;
+  opacity: 0.9;
 }
 
 .login input[type=submit] {
@@ -161,7 +169,7 @@ header {
 /* main */
 
 main {
-  height: 100vh;
+  height: 100%;
   padding: 40px;
   transition: padding 0.5s;
 }
@@ -169,8 +177,31 @@ main {
 
 /* Peers */
 
-.padding {
-  padding-left: 22vw;
+
+.searchBar {
+  margin-bottom: 20px;
+}
+
+.searchBar input {
+  margin: 5px 0;
+  width: 200px;
+}
+
+.peerItem {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px 40px;
+  margin: 20px 0;
+  display: flex;
+  box-shadow: 3px 3px 4px 0 rgba(80, 79, 156, 0.2);
+}
+
+.peerItem:hover {
+  background-color: rgba(255,255,255, 0.6);
+}
+
+.peerName {
+  margin-right: 30px;
 }
 
 /* footer */

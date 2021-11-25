@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronDown, faChevronUp, faCogs, faInfo, faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
-import {List} from "./index";
+import {MenuList} from "./index";
 import {AppState} from "../../App";
 
 interface Props {
@@ -21,7 +21,7 @@ const Profile = ({ profileMenu, showMenu, name, userImage, logoutUser }: Props) 
             onClick={() => showMenu('profileMenu')}
             className="pointer"
         />
-        <List
+        <MenuList
             items={[
                 { icon: faInfo, name: 'Profile info', link: '/info' },
                 { icon: faCogs, name: 'Profile settings', link: '/settings' },
