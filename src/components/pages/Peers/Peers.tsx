@@ -1,7 +1,8 @@
 import React from 'react';
-import { Search } from "../../common";
-import { PeersList } from "./index";
-import {filter, peers} from "../../../utilities";
+import { Search } from "components/common";
+import { PeersList } from "./";
+import { filter } from "utilities";
+import { peers } from "const";
 
 interface State {
     searchQuery: string;

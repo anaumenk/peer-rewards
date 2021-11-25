@@ -1,10 +1,6 @@
 import React from 'react';
 
-interface Props {
-
-}
-
-const ProfileSettings = ({}: Props) => (
+const ProfileSettings = () => (
     <div className='setting'>
         ProfileSettings
     </div>

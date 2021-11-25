@@ -1,22 +1,21 @@
 import React from 'react';
-import { Header } from "./components/common";
+import { Header } from "components/common";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { NotFound, Peers, ProfileInfo, ProfileSettings } from './components/pages'
-import {auth} from "./utilities";
+import { NotFound, Peers, ProfileInfo, ProfileSettings } from 'components/pages'
+import { auth } from "utilities";
+import {menuItems, RoutePath} from "const";
+import {User} from "interfaces";
 
-export interface User {
-    name: string;
-    userImage: string;
-}
+const defaultUserImage = 'https://hope.be/wp-content/uploads/2015/05/no-user-image.gif';
 
-export interface AppState {
+interface State {
     mainMenu: boolean;
     profileMenu: boolean;
     loginMenu: boolean;
     user: User | null;
 }
 
-class App extends React.Component<{}, AppState>{
+class App extends React.Component<{}, State>{
     state = {
         user: null,
         mainMenu: false,
@@ -24,7 +23,7 @@ class App extends React.Component<{}, AppState>{
         loginMenu: false
     }
 
-    showMenu = (menu: keyof AppState) => {
+    showMenu = (menu: menuItems) => {
         this.setState(prevState => ({
             ...prevState,
             [menu]: !prevState[menu]
@@ -35,18 +34,19 @@ class App extends React.Component<{}, AppState>{
         let user = auth.login(login, password);
         if (!user) return {message: 'Incorrect data'};
         if (user.error) return user.error;
-        const {name, userImage = 'https://hope.be/wp-content/uploads/2015/05/no-user-image.gif'} = user;
+        const {name, userImage = defaultUserImage} = user;
         this.setState({
             user: {
                 name,
                 userImage
             },
         });
-        this.showMenu('loginMenu');
+        this.showMenu(menuItems.LOGIN_MENU);
+        return null;
     }
 
     logoutUser = () => {
-        this.showMenu('profileMenu');
+        this.showMenu(menuItems.PROFILE_MENU);
         this.setState({
             user: null,
         });
@@ -66,11 +66,11 @@ class App extends React.Component<{}, AppState>{
                     loginUser={this.loginUser}
                     logoutUser={this.logoutUser}
                 />
-                <main className={mainMenu ? 'padding': ''}>
+                <main className={mainMenu ? 'openMenu': ''}>
                     <Routes>
-                        <Route path="/" element={<Peers />}  />
-                        { user && <Route path="/info" element={<ProfileInfo/>} />}
-                        { user && <Route path="/settings" element={<ProfileSettings />} />}
+                        <Route path={RoutePath.ROOT} element={<Peers />}  />
+                        { user && <Route path={RoutePath.INFO} element={<ProfileInfo/>} />}
+                        { user && <Route path={RoutePath.SETTINGS} element={<ProfileSettings />} />}
                         <Route path="*" element={<NotFound />}  />
                     </Routes>
                 </main>

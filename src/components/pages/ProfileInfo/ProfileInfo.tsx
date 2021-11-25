@@ -1,9 +1,6 @@
 import React from 'react';
 
-interface Props {
-}
-
-const ProfileInfo = ({}: Props) => (
+const ProfileInfo = () => (
     <div className='info'>
         ProfileInfo
     </div>

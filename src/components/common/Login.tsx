@@ -1,8 +1,9 @@
-import React, {SyntheticEvent} from 'react';
+import React, { SyntheticEvent } from 'react';
+import {loginName} from "../../const";
 
 interface Props {
     show: boolean;
-    loginUser: (login:string, password: string) => {message: string} | void;
+    loginUser: (login:string, password: string) => {message: string} | null;
 }
 
 interface State{
@@ -18,9 +19,8 @@ class Login extends React.Component<Props, State>{
         error: null
     }
 
-    handleChange = (e: SyntheticEvent<HTMLInputElement>) => {
+    handleChange = (e: SyntheticEvent<HTMLInputElement>, name: loginName) => {
         const target = e.target as HTMLInputElement;
-        const name = target.name as keyof State;
         this.setState({
             [name]: target.value,
             error: null
@@ -54,16 +54,14 @@ class Login extends React.Component<Props, State>{
                         type="text"
                         placeholder="Enter your login"
                         value={name}
-                        onChange={this.handleChange}
-                        name="name"
+                        onChange={(e) => this.handleChange(e, loginName.NAME)}
                     />
                     <label>Password</label>
                     <input
                         type="password"
                         placeholder="Enter your password"
                         value={password}
-                        onChange={this.handleChange}
-                        name="password"
+                        onChange={(e) => this.handleChange(e, loginName.PASSWORD)}
                     />
                     {error && <p className="errorMessage">{error}</p>}
                     <input type="submit" value="Login" />

@@ -1,3 +1,4 @@
-export * from "./peers";
-export { default as NotFound } from "./NotFound";
-export * from './profile';
+export * from "./Peers";
+export * from "./NotFound";
+export * from './ProfileInfo';
+export * from './ProfileSettings';

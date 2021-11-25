@@ -1,16 +1,4 @@
-interface RewordI {
-    id: number,
-    from: string,
-    message: string,
-    amount: number
-}
-
-export interface PeerI {
-    id: number,
-    firstName: string,
-    lastName: string,
-    rewords: RewordI[]
-}
+import { PeerI } from "interfaces";
 
 export const peers: PeerI[] = [
     {
@@ -39,6 +27,17 @@ export const peers: PeerI[] = [
         id: 2,
         firstName: 'Rachael',
         lastName: 'Ali',
+        rewords: [{
+            id: 0,
+            from: 'Aspen Roman',
+            message: 'Do what you like.',
+            amount: 50
+        }]
+    },
+    {
+        id: 3,
+        firstName: 'r',
+        lastName: 'r',
         rewords: [{
             id: 0,
             from: 'Aspen Roman',
