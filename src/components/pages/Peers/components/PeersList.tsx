@@ -1,6 +1,6 @@
 import React from 'react';
-import { PeerItem } from "../index";
-import { PeerI } from "../../../../interfaces";
+import { PeerItem } from '../index';
+import { PeerI } from '../../../../interfaces';
 
 interface Props {
     peers: PeerI[]

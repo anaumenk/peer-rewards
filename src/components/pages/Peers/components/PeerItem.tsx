@@ -1,5 +1,5 @@
-import React from "react";
-import { PeerI } from "interfaces";
+import React from 'react';
+import { PeerI } from 'interfaces';
 
 interface Props {
     info: PeerI

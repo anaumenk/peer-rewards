@@ -1,24 +1,24 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp, faCogs, faInfo, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
-import { MenuList } from "./";
-import {menuItems, RoutePath} from "const";
+import { faChevronDown, faChevronUp, faCogs, faInfo, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { MenuList } from './';
+import { RoutePath } from 'const';
 
 interface Props {
     profileMenu: boolean;
-    showMenu: (menu: menuItems) => void;
+    showMenu: React.Dispatch<React.SetStateAction<boolean>>;
     name: string;
     userImage: string;
     logoutUser: () => void;
 }
 
-const Profile = ({ profileMenu, showMenu, name, userImage, logoutUser }: Props) => (
+const Profile = ({ profileMenu, name, userImage, logoutUser, showMenu }: Props) => (
     <div className="profile">
         <div className="profilePic" style={{backgroundImage: `url(${userImage})`}}/>
         <span className="profileName">{name}</span>
         <FontAwesomeIcon
             icon={profileMenu ? faChevronUp : faChevronDown}
-            onClick={() => showMenu(menuItems.PROFILE_MENU)}
+            onClick={() => showMenu(!profileMenu)}
             className="pointer"
         />
         <MenuList

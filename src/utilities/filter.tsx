@@ -1,4 +1,4 @@
-import { PeerI } from "interfaces";
+import { PeerI } from 'interfaces';
 
 export const filter = (peers: PeerI[], query: string) => {
     if (!query) {

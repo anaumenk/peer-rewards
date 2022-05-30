@@ -1,4 +1,4 @@
-import { PeerI } from "interfaces";
+import { PeerI } from 'interfaces';
 
 export const peers: PeerI[] = [
     {

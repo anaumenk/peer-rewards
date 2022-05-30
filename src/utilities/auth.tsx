@@ -1,4 +1,4 @@
-import { users } from "const";
+import { users } from 'const';
 
 export const auth = {
 
