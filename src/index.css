@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #F1F3F8;
+  position: relative;
 }
 
 code {
@@ -42,11 +43,78 @@ a {
   padding-left: 22vw;
 }
 
-input {
+input, textarea, select {
   padding: 6px;
   border-radius: 6px;
   border: none;
   outline: none;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.amount {
+  align-self: flex-start;
+}
+
+.modal {
+  position: absolute;
+  background-color: #F1F3F8;
+  padding: 20px;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.content {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 20px 40px;
+  box-shadow: 3px 3px 4px 0 rgba(80, 79, 156, 0.2);
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal form label {
+  font-weight: 500;
+}
+
+.modal form input, .modal form textarea, .modal form select {
+  border: 1px solid #c4c4c4;
+  border-radius: 0;
+  margin: 5px 0 15px;
+}
+
+.modal form input[type="submit"]:disabled {
+  cursor: unset;
+  background-color: #959595;
+}
+
+.modal form input[type="submit"] {
+  background-color: #504F9C;
+  color: white;
+  font-weight: 600;
+  padding: 10px;
+  width: 90px;
+  border-radius: 6px;
+  align-self: center;
+}
+
+.closeContainer {
+  align-self: flex-end;
+  font-size: larger;
 }
 
 /* Header */
@@ -58,7 +126,7 @@ header {
   align-items: center;
 }
 
-.profile {
+.headerProfile {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -70,6 +138,7 @@ header {
   margin-right: 10px;
   border-radius: 50%;
   background: center/cover;
+  align-self: center;
 }
 
 .profileName {
@@ -77,7 +146,7 @@ header {
 }
 
 .menu {
-  position: absolute;
+  position: fixed;
   background-color: #504F9C;
 }
 
@@ -89,7 +158,6 @@ header {
 }
 
 .loginLink:hover{
-  cursor: pointer;
   text-decoration: underline;
 }
 
@@ -146,8 +214,6 @@ header {
 
 .menuItem:hover {
   text-decoration: underline;
-  cursor: pointer;
-
 }
 
 .menuItemIcon {
@@ -215,4 +281,97 @@ footer {
   bottom: 0;
   right: 0;
   left: 0;
+}
+
+/* peer profile */
+.peerProfile {
+  flex-direction: column;
+}
+.peerItem .header {
+  display: flex;
+  gap: 50px;
+}
+
+.peerItem .header .col {
+  gap: 10px
+}
+
+.peerItem .header .profilePic {
+  width: 70px;
+  height: 70px
+}
+
+.peerProfile .container {
+  margin-top: 10px;
+}
+
+.peerProfileMenu {
+  display: flex;
+  gap: 15px;
+  padding-left: 3vw;
+  font-weight: bold;
+}
+
+.peerProfileMenu p.active, .peerProfileMenu p:hover {
+  position: relative;
+  color: #504F9C;
+  cursor: pointer;
+}
+
+.peerProfileMenu p.active:after, .peerProfileMenu p:hover:after {
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  right: 0;
+  content: '';
+  border-bottom: 3px solid #504f9c;
+}
+
+.comments {
+  border-top: 2px solid #c4c4c4;
+  padding: 10px 0;
+  position: relative;
+}
+
+.comments .addIcon {
+  position: absolute;
+  top: -28px;
+  right: 3vw;
+  border: 2px solid #c4c4c4;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  font-size: larger;
+}
+
+.comment {
+  display: flex;
+  padding: 10px;
+  margin: 10px 0;
+  gap: 10px;
+}
+
+.comment .profilePic {
+  align-self: flex-start;
+}
+
+.comment .col {
+  align-items: flex-start;
+}
+
+.comment .name {
+  font-weight: 500;
+}
+
+.comment .time {
+  font-size: 10px;
+}
+
+
+.comment .message {
+  padding: 5px 0;
 }

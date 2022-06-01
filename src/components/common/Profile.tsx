@@ -1,20 +1,20 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp, faCogs, faInfo, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import { MenuList } from './';
+import { MenuList, ProfilePicture } from './';
 import { RoutePath } from 'const';
 
 interface Props {
     profileMenu: boolean;
     showMenu: React.Dispatch<React.SetStateAction<boolean>>;
     name: string;
-    userImage: string;
+    userImage?: string;
     logoutUser: () => void;
 }
 
 const Profile = ({ profileMenu, name, userImage, logoutUser, showMenu }: Props) => (
-    <div className="profile">
-        <div className="profilePic" style={{backgroundImage: `url(${userImage})`}}/>
+    <div className="headerProfile">
+        <ProfilePicture image={userImage} />
         <span className="profileName">{name}</span>
         <FontAwesomeIcon
             icon={profileMenu ? faChevronUp : faChevronDown}

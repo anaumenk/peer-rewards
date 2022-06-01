@@ -1,22 +1,23 @@
 import React from 'react';
 import { PeerI } from 'interfaces';
+import { useNavigate } from 'react-router-dom';
+import { ProfilePicture, RewardCol } from "../../../common";
+import { rewordsSum } from "../../../../utilities";
 
 interface Props {
-    info: PeerI
+    info: PeerI;
 }
 
 const PeerItem = ({ info }: Props) => {
-    const initialSum = 0;
-    const rewordsSum = info.rewords
-        ? info.rewords.reduce((acc, curr) => acc + curr.amount, initialSum)
-        : 0;
+    const navigate = useNavigate();
+    const handleClick = () => {
+      navigate(`/peer/${info.id}`);
+    }
     return (
-        <div className='peerItem'>
+        <div className='peerItem' onClick={handleClick}>
+            <ProfilePicture image={info.userImage} />
             <h3 className='peerName'>{info.firstName} {info.lastName}</h3>
-            <div className='peerReword'>
-                <p>Rewords</p>
-                <p className='amount'>${rewordsSum}</p>
-            </div>
+            <RewardCol title='Rewords' amount={rewordsSum(info.rewords)}/>
         </div>
     );
 }

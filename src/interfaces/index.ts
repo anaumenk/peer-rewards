@@ -1,19 +1,24 @@
-interface RewordI {
+export interface RewordI {
     id: number,
-    from: string,
+    fromId: number,
+    fromName: string;
+    fromImage: string | null,
     message: string,
-    amount: number
+    amount: number,
+    time: number;
 }
 
 export interface PeerI {
     id: number,
     firstName: string,
     lastName: string,
-    rewords: RewordI[]
+    rewords: RewordI[],
+    userImage: string | null,
 }
 
 
 export interface User {
+    id: number;
     name: string;
-    userImage: string;
+    userImage?: string;
 }

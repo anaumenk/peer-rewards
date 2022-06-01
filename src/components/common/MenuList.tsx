@@ -23,7 +23,7 @@ const MenuList = ({items, className = "", show, children = null }: Props) => (
         <ul className="menuList">
             {items.map((item, index) => {
                 return (
-                    <li className="menuItem" key={index}>
+                    <li className="menuItem pointer" key={index}>
                         <span className="menuItemIcon">
                             <FontAwesomeIcon icon={item.icon}/>
                         </span>
